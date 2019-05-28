@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		3D90E7E8229DA266007AC383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D90E7E7229DA266007AC383 /* AppDelegate.swift */; };
-		3D90E7EA229DA266007AC383 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D90E7E9229DA266007AC383 /* ViewController.swift */; };
 		3D90E7ED229DA266007AC383 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D90E7EB229DA266007AC383 /* Main.storyboard */; };
 		3D90E7EF229DA269007AC383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D90E7EE229DA269007AC383 /* Assets.xcassets */; };
 		3D90E7F2229DA269007AC383 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D90E7F0229DA269007AC383 /* LaunchScreen.storyboard */; };
+		3D90E7FA229DAB2D007AC383 /* PlantsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D90E7F9229DAB2D007AC383 /* PlantsTableViewController.swift */; };
+		3D90E7FC229DAB48007AC383 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D90E7FB229DAB48007AC383 /* LoginViewController.swift */; };
+		3D90E7FE229DAB61007AC383 /* PlantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D90E7FD229DAB61007AC383 /* PlantDetailViewController.swift */; };
+		3D90E800229DAB76007AC383 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D90E7FF229DAB76007AC383 /* UserProfileViewController.swift */; };
+		3D90E802229DAB89007AC383 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D90E801229DAB89007AC383 /* EditProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3D90E7E4229DA266007AC383 /* Water My Plants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Water My Plants.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D90E7E7229DA266007AC383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3D90E7E9229DA266007AC383 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3D90E7EC229DA266007AC383 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D90E7EE229DA269007AC383 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D90E7F1229DA269007AC383 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D90E7F3229DA269007AC383 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D90E7F9229DAB2D007AC383 /* PlantsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsTableViewController.swift; sourceTree = "<group>"; };
+		3D90E7FB229DAB48007AC383 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3D90E7FD229DAB61007AC383 /* PlantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailViewController.swift; sourceTree = "<group>"; };
+		3D90E7FF229DAB76007AC383 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		3D90E801229DAB89007AC383 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,42 @@
 		3D90E7E6229DA266007AC383 /* Water My Plants */ = {
 			isa = PBXGroup;
 			children = (
-				3D90E7E7229DA266007AC383 /* AppDelegate.swift */,
-				3D90E7E9229DA266007AC383 /* ViewController.swift */,
-				3D90E7EB229DA266007AC383 /* Main.storyboard */,
-				3D90E7EE229DA269007AC383 /* Assets.xcassets */,
-				3D90E7F0229DA269007AC383 /* LaunchScreen.storyboard */,
-				3D90E7F3229DA269007AC383 /* Info.plist */,
+				3D90E803229DABC7007AC383 /* View Controllers */,
+				3D90E804229DABFD007AC383 /* Storyboards */,
+				3D90E805229DAC17007AC383 /* Resources */,
 			);
 			path = "Water My Plants";
+			sourceTree = "<group>";
+		};
+		3D90E803229DABC7007AC383 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3D90E801229DAB89007AC383 /* EditProfileViewController.swift */,
+				3D90E7FF229DAB76007AC383 /* UserProfileViewController.swift */,
+				3D90E7FD229DAB61007AC383 /* PlantDetailViewController.swift */,
+				3D90E7FB229DAB48007AC383 /* LoginViewController.swift */,
+				3D90E7F9229DAB2D007AC383 /* PlantsTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		3D90E804229DABFD007AC383 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				3D90E7EB229DA266007AC383 /* Main.storyboard */,
+				3D90E7F0229DA269007AC383 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		3D90E805229DAC17007AC383 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3D90E7EE229DA269007AC383 /* Assets.xcassets */,
+				3D90E7F3229DA269007AC383 /* Info.plist */,
+				3D90E7E7229DA266007AC383 /* AppDelegate.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +171,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D90E7EA229DA266007AC383 /* ViewController.swift in Sources */,
+				3D90E7FC229DAB48007AC383 /* LoginViewController.swift in Sources */,
+				3D90E800229DAB76007AC383 /* UserProfileViewController.swift in Sources */,
+				3D90E7FA229DAB2D007AC383 /* PlantsTableViewController.swift in Sources */,
+				3D90E7FE229DAB61007AC383 /* PlantDetailViewController.swift in Sources */,
 				3D90E7E8229DA266007AC383 /* AppDelegate.swift in Sources */,
+				3D90E802229DAB89007AC383 /* EditProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +324,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K3F959XXFV;
-				INFOPLIST_FILE = "Water My Plants/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Water My Plants/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +342,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K3F959XXFV;
-				INFOPLIST_FILE = "Water My Plants/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Water My Plants/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
