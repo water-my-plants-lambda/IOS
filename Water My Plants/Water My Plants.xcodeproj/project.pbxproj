@@ -16,6 +16,8 @@
 		3D90E7FE229DAB61007AC383 /* PlantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D90E7FD229DAB61007AC383 /* PlantDetailViewController.swift */; };
 		3D90E800229DAB76007AC383 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D90E7FF229DAB76007AC383 /* UserProfileViewController.swift */; };
 		3D90E802229DAB89007AC383 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D90E801229DAB89007AC383 /* EditProfileViewController.swift */; };
+		3D90E807229DCFA6007AC383 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D90E806229DCFA6007AC383 /* Bearer.swift */; };
+		3D90E809229DCFFE007AC383 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D90E808229DCFFE007AC383 /* APIController.swift */; };
 		FFCBE775229DAE5100DBBDC2 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCBE774229DAE5100DBBDC2 /* Plant.swift */; };
 		FFCBE777229DAE5C00DBBDC2 /* PlantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCBE776229DAE5C00DBBDC2 /* PlantController.swift */; };
 		FFCBE779229DB50400DBBDC2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCBE778229DB50400DBBDC2 /* User.swift */; };
@@ -33,6 +35,8 @@
 		3D90E7FD229DAB61007AC383 /* PlantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailViewController.swift; sourceTree = "<group>"; };
 		3D90E7FF229DAB76007AC383 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		3D90E801229DAB89007AC383 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		3D90E806229DCFA6007AC383 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
+		3D90E808229DCFFE007AC383 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		FFCBE774229DAE5100DBBDC2 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		FFCBE776229DAE5C00DBBDC2 /* PlantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantController.swift; sourceTree = "<group>"; };
 		FFCBE778229DB50400DBBDC2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				FFCBE776229DAE5C00DBBDC2 /* PlantController.swift */,
+				3D90E808229DCFFE007AC383 /* APIController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 			children = (
 				FFCBE774229DAE5100DBBDC2 /* Plant.swift */,
 				FFCBE778229DB50400DBBDC2 /* User.swift */,
+				3D90E806229DCFA6007AC383 /* Bearer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,6 +202,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D90E809229DCFFE007AC383 /* APIController.swift in Sources */,
+				3D90E807229DCFA6007AC383 /* Bearer.swift in Sources */,
 				3D90E7FC229DAB48007AC383 /* LoginViewController.swift in Sources */,
 				3D90E800229DAB76007AC383 /* UserProfileViewController.swift in Sources */,
 				3D90E7FA229DAB2D007AC383 /* PlantsTableViewController.swift in Sources */,

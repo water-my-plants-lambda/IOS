@@ -12,7 +12,120 @@ class PlantController {
     
     // MARK: - Properties
     var plants: [Plant] = [Plant(name: "Palmer", species: "Desert Palm", scheduleTime: Date()), Plant(name: "Bob", species: "Not really a plant", scheduleTime: Date())]
-    
+    var bearer: Bearer?
+    private let baseURL = URL(string: "https://water-my-plants.firebaseio.com/")!
+  
     // MARK: - Networking
+    func fetchPlants(completion: @escaping (Error?) -> Void) {
+        guard let bearer = bearer else {
+            NSLog("No bearer token available")
+            completion(NSError())
+            return
+        }
+        let requestURL = baseURL
+            .appendingPathComponent("blah")
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = HTTPMethod.get.rawValue
+        request.addValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let response = response as? HTTPURLResponse,
+            response.statusCode == 401 {
+                completion(NSError())
+                return
+            }
+            if let error = error {
+                NSLog("Error getting plant details: \(error)")
+                completion(NSError())
+                return
+            }
+            guard let data = data else {
+                completion(NSError())
+                return
+            }
+            let decoder = JSONDecoder()
+            do {
+                self.plants = try decoder.decode([Plant].self, from: data)
+                completion(nil)
+            } catch {
+                NSLog("Error decoding plant details: \(error)")
+                completion(NSError())
+            }
+        }.resume()
+    }
     
+    func createPlant(with plant: Plant, completion: @escaping (Error?) -> Void) {
+        guard let bearer = bearer else {
+            NSLog("No bearer token available")
+            completion(NSError())
+            return
+        }
+        let requestURL = baseURL
+            .appendingPathComponent("blah")
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.addValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
+        do {
+            let encoder = JSONEncoder()
+            request.httpBody = try encoder.encode(plant)
+        } catch {
+            completion(error)
+            return
+        }
+        URLSession.shared.dataTask(with: request) { _, response, error in
+            if let response = response as? HTTPURLResponse,
+                response.statusCode != 200 {
+                completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
+                return
+            }
+            if let error = error {
+                completion(error)
+                return
+            }
+            self.plants.append(plant)
+        }.resume()
+    }
+    
+    func deletePlant(with plant: Plant, completion: @escaping (Error?) -> Void) {
+        guard let bearer = bearer else {
+            NSLog("No bearer token available")
+            completion(NSError())
+            return
+        }
+        let requestURL = baseURL
+            .appendingPathComponent("blah")
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = HTTPMethod.delete.rawValue
+        request.addValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
+        do {
+            let encoder = JSONEncoder()
+            request.httpBody = try encoder.encode(plant)
+        } catch {
+            completion(error)
+            return
+        }
+        URLSession.shared.dataTask(with: request) { _, response, error in
+            if let response = response as? HTTPURLResponse,
+                response.statusCode != 200 {
+                completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
+                return
+            }
+            if let error = error {
+                completion(error)
+                return
+            }
+            guard let index = self.plants.firstIndex(of: plant) else {
+                NSLog("Error finding plant")
+                completion(NSError())
+                return
+            }
+            self.plants.remove(at: index)
+        }.resume()
+    }
+    
+    enum HTTPMethod: String {
+        case get = "GET"
+        case put = "PUT"
+        case post = "POST"
+        case delete = "DELETE"
+    }
 }

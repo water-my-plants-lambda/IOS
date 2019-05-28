@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Plant: Codable {
+struct Plant: Codable, Equatable {
     var name: String
     var species: String
     var scheduleTime: Date
