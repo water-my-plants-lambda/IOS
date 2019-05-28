@@ -16,6 +16,9 @@
 		3D90E7FE229DAB61007AC383 /* PlantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D90E7FD229DAB61007AC383 /* PlantDetailViewController.swift */; };
 		3D90E800229DAB76007AC383 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D90E7FF229DAB76007AC383 /* UserProfileViewController.swift */; };
 		3D90E802229DAB89007AC383 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D90E801229DAB89007AC383 /* EditProfileViewController.swift */; };
+		FFCBE775229DAE5100DBBDC2 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCBE774229DAE5100DBBDC2 /* Plant.swift */; };
+		FFCBE777229DAE5C00DBBDC2 /* PlantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCBE776229DAE5C00DBBDC2 /* PlantController.swift */; };
+		FFCBE779229DB50400DBBDC2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCBE778229DB50400DBBDC2 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		3D90E7FD229DAB61007AC383 /* PlantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailViewController.swift; sourceTree = "<group>"; };
 		3D90E7FF229DAB76007AC383 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		3D90E801229DAB89007AC383 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		FFCBE774229DAE5100DBBDC2 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
+		FFCBE776229DAE5C00DBBDC2 /* PlantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantController.swift; sourceTree = "<group>"; };
+		FFCBE778229DB50400DBBDC2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,8 @@
 		3D90E7E6229DA266007AC383 /* Water My Plants */ = {
 			isa = PBXGroup;
 			children = (
+				FFCBE773229DAE2D00DBBDC2 /* Model */,
+				FFCBE772229DAE1E00DBBDC2 /* Model Controller */,
 				3D90E803229DABC7007AC383 /* View Controllers */,
 				3D90E804229DABFD007AC383 /* Storyboards */,
 				3D90E805229DAC17007AC383 /* Resources */,
@@ -98,6 +106,23 @@
 				3D90E7E7229DA266007AC383 /* AppDelegate.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		FFCBE772229DAE1E00DBBDC2 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FFCBE776229DAE5C00DBBDC2 /* PlantController.swift */,
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		FFCBE773229DAE2D00DBBDC2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FFCBE774229DAE5100DBBDC2 /* Plant.swift */,
+				FFCBE778229DB50400DBBDC2 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,7 +199,10 @@
 				3D90E7FC229DAB48007AC383 /* LoginViewController.swift in Sources */,
 				3D90E800229DAB76007AC383 /* UserProfileViewController.swift in Sources */,
 				3D90E7FA229DAB2D007AC383 /* PlantsTableViewController.swift in Sources */,
+				FFCBE777229DAE5C00DBBDC2 /* PlantController.swift in Sources */,
 				3D90E7FE229DAB61007AC383 /* PlantDetailViewController.swift in Sources */,
+				FFCBE779229DB50400DBBDC2 /* User.swift in Sources */,
+				FFCBE775229DAE5100DBBDC2 /* Plant.swift in Sources */,
 				3D90E7E8229DA266007AC383 /* AppDelegate.swift in Sources */,
 				3D90E802229DAB89007AC383 /* EditProfileViewController.swift in Sources */,
 			);

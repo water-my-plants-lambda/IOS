@@ -28,6 +28,7 @@
                                             <segment title="Sign In"/>
                                         </segments>
                                         <connections>
+                                            <action selector="segmentedControlChanged:" destination="S0M-7r-Xn3" eventType="valueChanged" id="M3z-kF-O76"/>
                                             <action selector="signInTypeChanged:" destination="S0M-7r-Xn3" eventType="valueChanged" id="KZy-Bj-SRo"/>
                                         </connections>
                                     </segmentedControl>
@@ -58,6 +59,7 @@
                                         <state key="normal" title="Sign Up"/>
                                         <connections>
                                             <action selector="authenticate:" destination="S0M-7r-Xn3" eventType="touchUpInside" id="QPg-pk-Myx"/>
+                                            <action selector="signUpButtonTapped:" destination="S0M-7r-Xn3" eventType="touchUpInside" id="pYJ-GZ-2Eq"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -80,10 +82,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="pT8-5z-mD4"/>
                     <connections>
+                        <outlet property="loginSegmentedControl" destination="wH9-jJ-Uf6" id="FAD-6H-pMZ"/>
                         <outlet property="loginTypeSegmentedControl" destination="wH9-jJ-Uf6" id="lp6-vX-0w9"/>
-                        <outlet property="passwordTextField" destination="xth-30-j0j" id="ais-br-R4L"/>
+                        <outlet property="passwordTextField" destination="xth-30-j0j" id="QcB-a0-ahu"/>
+                        <outlet property="phoneTextField" destination="08v-3b-bfP" id="YAr-ct-pQO"/>
                         <outlet property="signInButton" destination="NTI-Vt-ZOt" id="cux-fq-nY6"/>
-                        <outlet property="usernameTextField" destination="S6D-6e-Arv" id="6Wn-7j-nTB"/>
+                        <outlet property="signUpButton" destination="NTI-Vt-ZOt" id="NeC-Oc-O1T"/>
+                        <outlet property="usernameTextField" destination="S6D-6e-Arv" id="pcq-Fv-Av6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f1z-nh-610" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -134,8 +139,17 @@
                         <viewLayoutGuide key="safeArea" id="XIt-i8-X2m"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="ukS-ux-29a">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="gVV-Yh-mHr"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="gVV-Yh-mHr">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="v9Z-83-eAI" id="AmO-3h-9o3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="Ab1-AQ-sIw" id="qLT-OX-Uu6"/>
+                        <outlet property="nameTextField" destination="kxx-zA-Xhz" id="0Oi-iW-gFA"/>
+                        <outlet property="speciesTextField" destination="lfd-vx-ZDs" id="Cl1-jy-tya"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Uh-gq-h46" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -150,7 +164,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="5Vm-bG-jYl" detailTextLabel="IoD-u8-6yY" style="IBUITableViewCellStyleSubtitle" id="83J-PI-fuz">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlantCell" textLabel="5Vm-bG-jYl" detailTextLabel="IoD-u8-6yY" style="IBUITableViewCellStyleSubtitle" id="83J-PI-fuz">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="83J-PI-fuz" id="po0-Qx-yTa">
@@ -263,6 +277,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="phoneLabel" destination="MYd-si-4Tv" id="b6s-ij-pO7"/>
+                        <outlet property="usernameLabel" destination="6rZ-4Z-bT2" id="9d3-gc-DDI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sHt-IK-tOC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -303,8 +321,16 @@
                         <viewLayoutGuide key="safeArea" id="zhv-Nb-435"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Profile" id="OAu-yN-nty">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="x7D-k0-1uL"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="x7D-k0-1uL">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="I1f-Ac-tRI" id="cyM-BI-UfM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="newPhoneTextField" destination="r3A-8n-whv" id="bFF-zB-aCV"/>
+                        <outlet property="newUsernameTextField" destination="Tkc-TK-JGK" id="sLj-rA-kYi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ZS-se-rZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -330,6 +356,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GiP-ht-8Hs"/>
+        <segue reference="3Y7-ea-UID"/>
     </inferredMetricsTieBreakers>
 </document>

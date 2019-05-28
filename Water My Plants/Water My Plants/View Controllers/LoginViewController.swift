@@ -8,23 +8,42 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+// Enum
+enum LoginType {
+    case signUp
+    case signIn
+}
 
+class LoginViewController: UIViewController {
+    
+    // MARK: - Properties and Outlets
+    @IBOutlet weak var loginSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var phoneTextField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
+    
+    var loginType = LoginType.signUp
+
+    // MARK: - View Loading
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        signUpButton.layer.cornerRadius = 8
+    }
+
+    // MARK: - Actions
+    @IBAction func signUpButtonTapped(_ sender: Any) {
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            loginType = .signUp
+            signUpButton.setTitle("Sign Up", for: .normal)
+        } else {
+            loginType = .signIn
+            signUpButton.setTitle("Sign In", for: .normal)
+        }
     }
-    */
-
 }
