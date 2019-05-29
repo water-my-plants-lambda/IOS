@@ -14,6 +14,12 @@ class PlantController {
     var plants: [Plant] = [Plant(name: "Palmer", species: "Desert Palm", scheduleTime: Date()), Plant(name: "Bob", species: "Not really a plant", scheduleTime: Date())]
     var bearer: Bearer?
     private let baseURL = URL(string: "https://water-my-plants.firebaseio.com/")!
+    
+    // MARK: - Initializers
+    
+    init() {
+        loadFromPersistence()
+    }
   
     // MARK: - Networking
     func fetchPlants(completion: @escaping (Error?) -> Void) {
@@ -82,7 +88,50 @@ class PlantController {
                 return
             }
             self.plants.append(plant)
+            self.saveToPersistence()
         }.resume()
+    }
+    
+    func updatePlant(with plant: Plant, completion: @escaping (Error?) -> Void) {
+        guard let bearer = bearer else {
+            NSLog("No bearer token available")
+            completion(NSError())
+            return
+        }
+        
+        let requestURL = baseURL
+            .appendingPathComponent("blah")
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.addValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
+        do {
+            let encoder = JSONEncoder()
+            request.httpBody = try encoder.encode(plant)
+        } catch {
+            completion(error)
+            return
+        }
+        URLSession.shared.dataTask(with: request) { _, response, error in
+            if let response = response as? HTTPURLResponse,
+                response.statusCode != 200 {
+                completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
+                return
+            }
+            if let error = error {
+                completion(error)
+                return
+            }
+            guard let index = self.plants.firstIndex(of: plant) else { return }
+            
+            var scratch = self.plants[index]
+            scratch.name = plant.name
+            scratch.species = plant.species
+            scratch.scheduleTime = plant.scheduleTime
+            
+            self.plants.remove(at: index)
+            self.plants.insert(scratch, at: index)
+            self.saveToPersistence()
+            }.resume()
     }
     
     func deletePlant(with plant: Plant, completion: @escaping (Error?) -> Void) {
@@ -119,9 +168,11 @@ class PlantController {
                 return
             }
             self.plants.remove(at: index)
+            self.saveToPersistence()
         }.resume()
     }
     
+    // MARK: - Enum
     enum HTTPMethod: String {
         case get = "GET"
         case put = "PUT"

@@ -10,9 +10,12 @@ import UIKit
 
 class EditProfileViewController: UIViewController {
     
-    // MARK: - Outlets
+    // MARK: - Properties and Outlets
     @IBOutlet weak var newUsernameTextField: UITextField!
     @IBOutlet weak var newPhoneTextField: UITextField!
+    
+    var user: User?
+    var apiController: APIController?
     
     // MARK: - View Loading
     override func viewDidLoad() {
@@ -23,6 +26,22 @@ class EditProfileViewController: UIViewController {
 
     // MARK: - Actions
     @IBAction func saveButtonTapped(_ sender: Any) {
+        guard let newUsername = newUsernameTextField.text,
+            !newUsername.isEmpty,
+            let newPhone = newPhoneTextField.text,
+            !newPhone.isEmpty else { return }
         
+        guard var updatedUser = user else { return }
+        updatedUser.username = newUsername
+        updatedUser.phoneNumber = newPhone
+        
+        apiController?.updateProfile(with: updatedUser, completion: { (error) in
+            if let error = error {
+                NSLog("Error creating plant: \(error)")
+                return
+            }
+        })
+        
+        navigationController?.popToRootViewController(animated: true)
     }
 }

@@ -42,13 +42,13 @@
                                         <rect key="frame" x="0.0" y="84" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="08v-3b-bfP">
                                         <rect key="frame" x="0.0" y="127" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="go" textContentType="tel"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTI-Vt-ZOt">
                                         <rect key="frame" x="40" y="170" width="263" height="50"/>
@@ -148,6 +148,7 @@
                     <connections>
                         <outlet property="datePicker" destination="Ab1-AQ-sIw" id="qLT-OX-Uu6"/>
                         <outlet property="nameTextField" destination="kxx-zA-Xhz" id="0Oi-iW-gFA"/>
+                        <outlet property="saveButton" destination="gVV-Yh-mHr" id="TQN-eh-G96"/>
                         <outlet property="speciesTextField" destination="lfd-vx-ZDs" id="Cl1-jy-tya"/>
                     </connections>
                 </viewController>
@@ -270,7 +271,11 @@
                         <viewLayoutGuide key="safeArea" id="LxA-8e-Smz"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="iXa-Y6-hMj">
-                        <barButtonItem key="leftBarButtonItem" title="Dismiss" id="dhQ-Dc-cQk"/>
+                        <barButtonItem key="leftBarButtonItem" title="Dismiss" id="dhQ-Dc-cQk">
+                            <connections>
+                                <action selector="dismiss:" destination="ZJy-cG-G54" id="75R-JM-h4G"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Edit Profile" id="0Q8-GP-m2a">
                             <connections>
                                 <segue destination="I1f-Ac-tRI" kind="show" identifier="EditSegue" id="KA5-pq-0cE"/>

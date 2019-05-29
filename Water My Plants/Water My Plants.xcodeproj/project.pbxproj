@@ -21,6 +21,7 @@
 		FFCBE775229DAE5100DBBDC2 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCBE774229DAE5100DBBDC2 /* Plant.swift */; };
 		FFCBE777229DAE5C00DBBDC2 /* PlantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCBE776229DAE5C00DBBDC2 /* PlantController.swift */; };
 		FFCBE779229DB50400DBBDC2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCBE778229DB50400DBBDC2 /* User.swift */; };
+		FFCBE77B229EF30200DBBDC2 /* PlantPersistenceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCBE77A229EF30200DBBDC2 /* PlantPersistenceExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		FFCBE774229DAE5100DBBDC2 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		FFCBE776229DAE5C00DBBDC2 /* PlantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantController.swift; sourceTree = "<group>"; };
 		FFCBE778229DB50400DBBDC2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FFCBE77A229EF30200DBBDC2 /* PlantPersistenceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantPersistenceExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			children = (
 				FFCBE776229DAE5C00DBBDC2 /* PlantController.swift */,
 				3D90E808229DCFFE007AC383 /* APIController.swift */,
+				FFCBE77A229EF30200DBBDC2 /* PlantPersistenceExtension.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				FFCBE775229DAE5100DBBDC2 /* Plant.swift in Sources */,
 				3D90E7E8229DA266007AC383 /* AppDelegate.swift in Sources */,
 				3D90E802229DAB89007AC383 /* EditProfileViewController.swift in Sources */,
+				FFCBE77B229EF30200DBBDC2 /* PlantPersistenceExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

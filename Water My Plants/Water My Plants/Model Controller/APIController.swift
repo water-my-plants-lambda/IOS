@@ -9,10 +9,12 @@
 import Foundation
 
 class APIController {
-    private let baseURL = URL(string: "https://water-my-plants.firebaseio.com/")!
     
+    // MARK: - Properties
+    private let baseURL = URL(string: "https://water-my-plants.firebaseio.com/")!
     var bearer: Bearer?
     
+    // MARK: - Authentication
     func signUp(with user: User, completion: @escaping (Error?) -> Void) {
         let requestURL = baseURL.appendingPathComponent("blah/blah")
         var request = URLRequest(url: requestURL)
@@ -81,6 +83,41 @@ class APIController {
         }.resume()
     }
     
+    // MARK: - Networking
+    func updateProfile(with user: User, completion: @escaping (Error?) -> Void) {
+        guard let bearer = bearer else {
+            NSLog("No bearer token available")
+            completion(NSError())
+            return
+        }
+        
+        let requestURL = baseURL
+            .appendingPathComponent("blah")
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.addValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
+        do {
+            let encoder = JSONEncoder()
+            request.httpBody = try encoder.encode(user)
+        } catch {
+            completion(error)
+            return
+        }
+        URLSession.shared.dataTask(with: request) { _, response, error in
+            if let response = response as? HTTPURLResponse,
+                response.statusCode != 200 {
+                completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
+                return
+            }
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            }.resume()
+    }
+    
+    // MARK: -  Enum
     enum HTTPMethod: String {
         case get = "GET"
         case put = "PUT"
