@@ -33,7 +33,7 @@ class EditProfileViewController: UIViewController {
         
         guard var updatedUser = user else { return }
         updatedUser.username = newUsername
-        updatedUser.phoneNumber = newPhone
+        updatedUser.phone = newPhone
         
         apiController?.updateProfile(with: updatedUser, completion: { (error) in
             if let error = error {

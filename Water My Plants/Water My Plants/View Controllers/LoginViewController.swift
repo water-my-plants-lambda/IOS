@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     
     var loginType = LoginType.signUp
@@ -40,9 +41,11 @@ class LoginViewController: UIViewController {
             !username.isEmpty,
             let password = passwordTextField.text,
             !password.isEmpty,
-            let phoneNumber = phoneTextField.text,
-            !phoneNumber.isEmpty {
-            let user = User(username: username, password: password, phoneNumber: phoneNumber)
+            let phone = phoneTextField.text,
+            !phone.isEmpty,
+            let email = emailTextField.text,
+            !email.isEmpty {
+            let user = User(username: username, password: password, phone: phone, email: email)
             switch loginType {
             case .signUp:
                 apiController.signUp(with: user) { (error) in
@@ -57,6 +60,7 @@ class LoginViewController: UIViewController {
                                 self.loginType = .signIn
                                 self.loginSegmentedControl.selectedSegmentIndex = 1
                                 self.signUpButton.setTitle("Sign In", for: .normal)
+                                print("It made it!")
                             })
                         }
                     }
@@ -64,7 +68,7 @@ class LoginViewController: UIViewController {
             case .signIn:
                 apiController.signIn(with: user) { (error) in
                     if let error = error {
-                        NSLog("Error loggin in: \(error)")
+                        NSLog("Error logging in: \(error)")
                     } else {
                         DispatchQueue.main.async {
                             self.dismiss(animated: true, completion: nil)
@@ -80,8 +84,12 @@ class LoginViewController: UIViewController {
         if sender.selectedSegmentIndex == 0 {
             loginType = .signUp
             signUpButton.setTitle("Sign Up", for: .normal)
-        } else {
+            phoneTextField.isHidden = false
+            emailTextField.isHidden = false
+        } else if sender.selectedSegmentIndex == 1 {
             loginType = .signIn
+            phoneTextField.isHidden = true
+            emailTextField.isHidden = true
             signUpButton.setTitle("Sign In", for: .normal)
         }
     }

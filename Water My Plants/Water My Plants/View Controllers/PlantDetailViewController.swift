@@ -33,8 +33,8 @@ class PlantDetailViewController: UIViewController {
             self.title = plant?.name
             
             nameTextField.text = plant?.name
-            speciesTextField.text = plant?.species
-            datePicker.date = plant!.scheduleTime
+            speciesTextField.text = plant?.description
+            datePicker.date = plant!.lastWater
         } else {
             self.title = "New Plant"
         }
@@ -57,11 +57,11 @@ class PlantDetailViewController: UIViewController {
         } else {
             guard let name = nameTextField.text,
                 !name.isEmpty,
-                let species = speciesTextField.text,
-                !species.isEmpty else { return }
-            let scheduleTime = datePicker.date
+                let description = speciesTextField.text,
+                !description.isEmpty else { return }
+            let lastWater = datePicker.date
             
-            let newPlant = Plant(name: name, species: species, scheduleTime: scheduleTime)
+            let newPlant = Plant(name: name, id: 1, userId: 1, description: description, lastWater: lastWater)
             plantController?.createPlant(with: newPlant, completion: { (error) in
                 if let error = error {
                     NSLog("Error creating plant: \(error)")

@@ -11,7 +11,8 @@ import Foundation
 class PlantController {
     
     // MARK: - Properties
-    var plants: [Plant] = [Plant(name: "Palmer", species: "Desert Palm", scheduleTime: Date()), Plant(name: "Bob", species: "Not really a plant", scheduleTime: Date())]
+    var plants: [Plant] = []
+    var plant: Plant?
     var bearer: Bearer?
     private let baseURL = URL(string: "https://water-my-plants.firebaseio.com/")!
     
@@ -24,15 +25,15 @@ class PlantController {
     // MARK: - Networking
     func fetchPlants(completion: @escaping (Error?) -> Void) {
         guard let bearer = bearer else {
-            NSLog("No bearer token available")
+            NSLog("No token available")
             completion(NSError())
             return
         }
         let requestURL = baseURL
-            .appendingPathComponent("blah")
+            .appendingPathComponent("api/users/\(plant!.userId)/plants")
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.get.rawValue
-        request.addValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
+        request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let response = response as? HTTPURLResponse,
             response.statusCode == 401 {
@@ -61,7 +62,7 @@ class PlantController {
     
     func createPlant(with plant: Plant, completion: @escaping (Error?) -> Void) {
         guard let bearer = bearer else {
-            NSLog("No bearer token available")
+            NSLog("No token available")
             completion(NSError())
             return
         }
@@ -125,8 +126,8 @@ class PlantController {
             
             var scratch = self.plants[index]
             scratch.name = plant.name
-            scratch.species = plant.species
-            scratch.scheduleTime = plant.scheduleTime
+            scratch.description = plant.description
+            scratch.lastWater = plant.lastWater
             
             self.plants.remove(at: index)
             self.plants.insert(scratch, at: index)

@@ -11,25 +11,26 @@ import Foundation
 class APIController {
     
     // MARK: - Properties
-    private let baseURL = URL(string: "https://water-my-plants.firebaseio.com/")!
+    private let baseURL = URL(string: "https://water-my-plants-be.herokuapp.com")!
     var bearer: Bearer?
     
     // MARK: - Authentication
     func signUp(with user: User, completion: @escaping (Error?) -> Void) {
-        let requestURL = baseURL.appendingPathComponent("blah/blah")
+        let requestURL = baseURL.appendingPathComponent("api").appendingPathComponent("register")
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.post.rawValue
-        request.setValue("blah/blah", forHTTPHeaderField: "Blah-blah")
+        //request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         do {
             request.httpBody = try JSONEncoder().encode(user)
+            print("First print")
         } catch {
             NSLog("Error encoding User: \(error)")
             completion(error)
             return
         }
-        
         URLSession.shared.dataTask(with: request) { (_, response, error) in
-           if let response = response as? HTTPURLResponse,
+           print("Second print")
+            if let response = response as? HTTPURLResponse,
             response.statusCode != 200 {
             completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
             return
@@ -44,10 +45,10 @@ class APIController {
     }
     
     func signIn(with user: User, completion: @escaping (Error?) -> Void) {
-        let requestURL = baseURL.appendingPathComponent("blah/blah")
+        let requestURL = baseURL.appendingPathComponent("api/login")
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.post.rawValue
-        request.setValue("blah/blah", forHTTPHeaderField: "Blah-blah")
+        //request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         do {
             request.httpBody = try JSONEncoder().encode(user)
         } catch {
@@ -63,7 +64,7 @@ class APIController {
                 return
             }
             if let error = error {
-                NSLog("Error signing up: \(error)")
+                NSLog("Error signing in: \(error)")
                 completion(error)
                 return
             }

@@ -21,7 +21,7 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
 
         usernameLabel.text = user?.username
-        phoneLabel.text = user?.phoneNumber
+        phoneLabel.text = user?.phone
     }
     
     // MARK: - Actions

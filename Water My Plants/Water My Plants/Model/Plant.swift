@@ -10,6 +10,8 @@ import Foundation
 
 struct Plant: Codable, Equatable {
     var name: String
-    var species: String
-    var scheduleTime: Date
+    var id: Int
+    var userId: Int
+    var description: String
+    var lastWater: Date
 }
