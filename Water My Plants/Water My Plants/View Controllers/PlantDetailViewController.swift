@@ -31,12 +31,14 @@ class PlantDetailViewController: UIViewController {
         if isCellSegue {
             saveButton.title = "Update"
             self.title = plant?.name
+            datePicker.isHidden = false
             
             nameTextField.text = plant?.name
             speciesTextField.text = plant?.description
-            datePicker.date = plant!.lastWater
+            datePicker.date = plant!.times
         } else {
             self.title = "New Plant"
+            datePicker.isHidden = true
         }
     }
 
@@ -59,9 +61,9 @@ class PlantDetailViewController: UIViewController {
                 !name.isEmpty,
                 let description = speciesTextField.text,
                 !description.isEmpty else { return }
-            let lastWater = datePicker.date
+            let times = datePicker.date
             
-            let newPlant = Plant(name: name, id: 1, userId: 1, description: description, lastWater: lastWater)
+            let newPlant = Plant(name: name, description: description, times: times)
             plantController?.createPlant(with: newPlant, completion: { (error) in
                 if let error = error {
                     NSLog("Error creating plant: \(error)")

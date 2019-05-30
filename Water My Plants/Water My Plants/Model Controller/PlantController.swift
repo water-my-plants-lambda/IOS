@@ -14,7 +14,7 @@ class PlantController {
     var plants: [Plant] = []
     var plant: Plant?
     var bearer: Bearer?
-    private let baseURL = URL(string: "https://water-my-plants.firebaseio.com/")!
+    private let baseURL = URL(string: "https://water-my-plants-be.herokuapp.com")!
     
     // MARK: - Initializers
     
@@ -66,11 +66,13 @@ class PlantController {
             completion(NSError())
             return
         }
-        let requestURL = baseURL
-            .appendingPathComponent("blah")
+        let requestURL = baseURL.appendingPathComponent("api")
+            .appendingPathComponent("users")
+            .appendingPathComponent("\(plant.userId)")
+            .appendingPathComponent("plants")
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.post.rawValue
-        request.addValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
+        request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         do {
             let encoder = JSONEncoder()
             request.httpBody = try encoder.encode(plant)
@@ -127,7 +129,7 @@ class PlantController {
             var scratch = self.plants[index]
             scratch.name = plant.name
             scratch.description = plant.description
-            scratch.lastWater = plant.lastWater
+            scratch.times = plant.times
             
             self.plants.remove(at: index)
             self.plants.insert(scratch, at: index)
