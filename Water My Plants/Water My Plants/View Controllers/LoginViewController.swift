@@ -42,9 +42,7 @@ class LoginViewController: UIViewController {
             let password = passwordTextField.text,
             !password.isEmpty,
             let phone = phoneTextField.text,
-            !phone.isEmpty,
-            let email = emailTextField.text,
-            !email.isEmpty {
+            let email = emailTextField.text {
             let user = User(username: username, password: password, phone: phone, email: email)
             switch loginType {
             case .signUp:
@@ -60,7 +58,6 @@ class LoginViewController: UIViewController {
                                 self.loginType = .signIn
                                 self.loginSegmentedControl.selectedSegmentIndex = 1
                                 self.signUpButton.setTitle("Sign In", for: .normal)
-                                print("It made it!")
                             })
                         }
                     }

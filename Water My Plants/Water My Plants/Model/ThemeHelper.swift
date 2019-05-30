@@ -15,7 +15,6 @@ enum ThemeHelper {
     static var secondaryBeige = UIColor(red: 255/255, green: 229/255, blue: 127/255, alpha: 1.0)
     static var lightBeige = UIColor(red: 255/255, green: 255/255, blue: 176/255, alpha: 1.0)
     static var darkBeige = UIColor(red: 202/255, green: 179/255, blue: 80/255, alpha: 1.0)
-    
 }
 
 

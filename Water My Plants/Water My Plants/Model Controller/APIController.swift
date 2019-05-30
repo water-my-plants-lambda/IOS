@@ -19,19 +19,17 @@ class APIController {
         let requestURL = baseURL.appendingPathComponent("api").appendingPathComponent("register")
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.post.rawValue
-        //request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         do {
             request.httpBody = try JSONEncoder().encode(user)
-            print("First print")
         } catch {
             NSLog("Error encoding User: \(error)")
             completion(error)
             return
         }
         URLSession.shared.dataTask(with: request) { (_, response, error) in
-           print("Second print")
             if let response = response as? HTTPURLResponse,
-            response.statusCode != 200 {
+            response.statusCode != 201 {
             completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
             return
             }
@@ -44,11 +42,12 @@ class APIController {
         }.resume()
     }
     
+    
     func signIn(with user: User, completion: @escaping (Error?) -> Void) {
-        let requestURL = baseURL.appendingPathComponent("api/login")
+        let requestURL = baseURL.appendingPathComponent("api").appendingPathComponent("login")
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.post.rawValue
-        //request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         do {
             request.httpBody = try JSONEncoder().encode(user)
         } catch {
@@ -56,7 +55,7 @@ class APIController {
             completion(error)
             return
         }
-        
+        print(user)
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 200 {
@@ -106,7 +105,7 @@ class APIController {
         }
         URLSession.shared.dataTask(with: request) { _, response, error in
             if let response = response as? HTTPURLResponse,
-                response.statusCode != 200 {
+                response.statusCode != 201 {
                 completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
                 return
             }
