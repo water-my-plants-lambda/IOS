@@ -161,7 +161,7 @@
             </objects>
             <point key="canvasLocation" x="4603" y="31"/>
         </scene>
-        <!--Plants Home Page-->
+        <!--Your Plants-->
         <scene sceneID="fSe-V2-Ni3">
             <objects>
                 <tableViewController id="9Z4-um-Uwb" customClass="PlantsTableViewController" customModule="Water_My_Plants" customModuleProvider="target" sceneMemberID="viewController">
@@ -203,7 +203,7 @@
                             <outlet property="delegate" destination="9Z4-um-Uwb" id="NVt-dj-U9t"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Plants Home Page" id="NrT-Me-Yge">
+                    <navigationItem key="navigationItem" title="Your Plants" id="NrT-Me-Yge">
                         <barButtonItem key="leftBarButtonItem" title="Profile" id="gKh-7k-has">
                             <connections>
                                 <segue destination="OMc-LC-eQO" kind="presentation" identifier="ProfileSegue" id="SxM-al-s0O"/>

@@ -23,7 +23,7 @@ class PlantDetailViewController: UIViewController {
     // MARK: - View Loading
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setTheme()
         updateViews()
     }
     
@@ -62,8 +62,8 @@ class PlantDetailViewController: UIViewController {
                 let description = speciesTextField.text,
                 !description.isEmpty else { return }
             let times = datePicker.date
-            
-            let newPlant = Plant(name: name, description: description, times: times)
+            let userId = 1
+            let newPlant = Plant(name: name, description: description, times: times, userId: userId)
             plantController?.createPlant(with: newPlant, completion: { (error) in
                 if let error = error {
                     NSLog("Error creating plant: \(error)")
@@ -78,5 +78,13 @@ class PlantDetailViewController: UIViewController {
         }
         
         navigationController?.popViewController(animated: true)
+    }
+    
+    func setTheme() {
+        view.backgroundColor = ThemeHelper.lightBlue
+        nameTextField.textColor = ThemeHelper.darkGreen
+        nameTextField.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 18)
+        speciesTextField.textColor = ThemeHelper.darkGreen
+        speciesTextField.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 18)
     }
 }

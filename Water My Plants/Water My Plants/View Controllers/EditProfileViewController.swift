@@ -20,8 +20,7 @@ class EditProfileViewController: UIViewController {
     // MARK: - View Loading
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+        setTheme()
     }
 
     // MARK: - Actions
@@ -44,4 +43,12 @@ class EditProfileViewController: UIViewController {
         
         navigationController?.popToRootViewController(animated: true)
     }
+    
+        func setTheme() {
+            view.backgroundColor = ThemeHelper.lightBlue
+            newUsernameTextField.textColor = ThemeHelper.darkGreen
+            newUsernameTextField.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 18)
+            newPhoneTextField.textColor = ThemeHelper.darkGreen
+            newPhoneTextField.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 18)
+        }
 }

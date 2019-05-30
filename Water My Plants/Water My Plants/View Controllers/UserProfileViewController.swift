@@ -19,9 +19,9 @@ class UserProfileViewController: UIViewController {
     // MARK: - View Loading
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        usernameLabel.text = user?.username
-        phoneLabel.text = user?.phone
+        setTheme()
+        usernameLabel.text = "Username: mitchell"
+        phoneLabel.text = "Phone number: 1(800)787-9233"
     }
     
     // MARK: - Actions
@@ -35,5 +35,12 @@ class UserProfileViewController: UIViewController {
         guard let editVC = segue.destination as? EditProfileViewController else { return }
         editVC.user = user
     }
-
+    
+    func setTheme() {
+        view.backgroundColor = ThemeHelper.lightBlue
+        usernameLabel.textColor = ThemeHelper.darkGreen
+        usernameLabel.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 22)
+        phoneLabel.textColor = ThemeHelper.darkGreen
+        phoneLabel.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 22)
+    }
 }

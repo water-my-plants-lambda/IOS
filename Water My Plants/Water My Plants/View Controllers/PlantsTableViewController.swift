@@ -14,6 +14,7 @@ class PlantsTableViewController: UITableViewController {
     let plantController = PlantController()
     var isCellSegue: Bool = false
     let apiController = APIController()
+    var plants: [Plant] = [Plant(name: "Palmer", description: "Desert Palm", times: Date(), userId: 1)]
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -34,16 +35,21 @@ class PlantsTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return plantController.plants.count
+        return plants.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlantCell", for: indexPath)
         
-        let plant = plantController.plants[indexPath.row]
+        let plant = plants[indexPath.row]
+        tableView.backgroundColor = ThemeHelper.lightBlue
+        cell.backgroundColor = ThemeHelper.darkBeige
         cell.textLabel?.text = plant.name
+        cell.textLabel?.textColor = ThemeHelper.darkGreen
+        cell.textLabel?.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 25)
         cell.detailTextLabel?.text = plant.description
-        
+        cell.detailTextLabel?.textColor = ThemeHelper.darkGreen
+        cell.detailTextLabel?.font = ThemeHelper.badScriptFont(with: .footnote, pointSize: 15)
         return cell
     }
     
@@ -79,5 +85,6 @@ class PlantsTableViewController: UITableViewController {
             loginVC.apiController = apiController
         }
     }
+    
     
 }

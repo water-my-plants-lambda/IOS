@@ -30,8 +30,7 @@ class LoginViewController: UIViewController {
     // MARK: - View Loading
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        signUpButton.layer.cornerRadius = 8
+        setTheme()
     }
     
     // MARK: - Actions
@@ -89,5 +88,22 @@ class LoginViewController: UIViewController {
             emailTextField.isHidden = true
             signUpButton.setTitle("Sign In", for: .normal)
         }
+    }
+    
+    func setTheme() {
+        view.backgroundColor = ThemeHelper.lightBlue
+        loginSegmentedControl.backgroundColor = ThemeHelper.darkGreen
+        loginSegmentedControl.tintColor = ThemeHelper.lightBeige
+        loginSegmentedControl.setTitleTextAttributes(ThemeHelper.textAttributes as [NSAttributedString.Key : Any], for: .normal)
+        usernameTextField.textColor = ThemeHelper.darkGreen
+        usernameTextField.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 18)
+        passwordTextField.textColor = ThemeHelper.darkGreen
+        passwordTextField.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 18)
+        phoneTextField.textColor = ThemeHelper.darkGreen
+        phoneTextField.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 18)
+        emailTextField.textColor = ThemeHelper.darkGreen
+        emailTextField.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 18)
+        signUpButton.setTitleColor(ThemeHelper.darkGreen, for: .normal)
+        signUpButton.titleLabel?.font = ThemeHelper.badScriptFont(with: .largeTitle, pointSize: 30)
     }
 }
