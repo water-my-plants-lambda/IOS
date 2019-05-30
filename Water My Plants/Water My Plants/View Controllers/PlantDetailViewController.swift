@@ -32,50 +32,31 @@ class PlantDetailViewController: UIViewController {
         if isCellSegue {
             saveButton.title = "Update"
             self.title = plant?.name
-            datePicker.isHidden = false
+//            datePicker.isHidden = false
             
             nameTextField.text = plant?.name
             speciesTextField.text = plant?.description
             datePicker.date = plant!.times
         } else {
             self.title = "New Plant"
-            datePicker.isHidden = true
+//            datePicker.isHidden = true
         }
     }
 
     // MARK: -  Actions
     @IBAction func saveButtonTapped(_ sender: Any) {
+        
+        guard let name = nameTextField.text,
+            !name.isEmpty,
+            let description = speciesTextField.text,
+            !description.isEmpty else { return }
+        let times = datePicker.date
+        
         if isCellSegue {
-            plantController?.updatePlant(with: plant!, completion: { (error) in
-                if let error = error {
-                    NSLog("Error creating plant: \(error)")
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    self.updateViews()
-                }
-            })
-            
+            guard let plant = plant else { return }
+            plantController?.updatePlant(with: plant, name: name, description: description, times: times)
         } else {
-            guard let name = nameTextField.text,
-                !name.isEmpty,
-                let description = speciesTextField.text,
-                !description.isEmpty else { return }
-            let times = datePicker.date
-            let userId = 1
-            let newPlant = Plant(name: name, description: description, times: times, userId: userId)
-            plantController?.createPlant(with: newPlant, completion: { (error) in
-                if let error = error {
-                    NSLog("Error creating plant: \(error)")
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    self.plant = newPlant
-                    self.updateViews()
-                }
-            })
+            plantController?.createPlant(with: name, description: description, times: times)
         }
         
         navigationController?.popViewController(animated: true)

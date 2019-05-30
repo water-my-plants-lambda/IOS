@@ -24,6 +24,8 @@
 		FFCBE777229DAE5C00DBBDC2 /* PlantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCBE776229DAE5C00DBBDC2 /* PlantController.swift */; };
 		FFCBE779229DB50400DBBDC2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCBE778229DB50400DBBDC2 /* User.swift */; };
 		FFCBE77B229EF30200DBBDC2 /* PlantPersistenceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCBE77A229EF30200DBBDC2 /* PlantPersistenceExtension.swift */; };
+		FFCBE77D22A08F6700DBBDC2 /* PlantControllerLocalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCBE77C22A08F6700DBBDC2 /* PlantControllerLocalExtension.swift */; };
+		FFCBE78022A097D300DBBDC2 /* LocalNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCBE77F22A097D300DBBDC2 /* LocalNotificationHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		FFCBE776229DAE5C00DBBDC2 /* PlantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantController.swift; sourceTree = "<group>"; };
 		FFCBE778229DB50400DBBDC2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FFCBE77A229EF30200DBBDC2 /* PlantPersistenceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantPersistenceExtension.swift; sourceTree = "<group>"; };
+		FFCBE77C22A08F6700DBBDC2 /* PlantControllerLocalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantControllerLocalExtension.swift; sourceTree = "<group>"; };
+		FFCBE77F22A097D300DBBDC2 /* LocalNotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 			children = (
 				FFCBE773229DAE2D00DBBDC2 /* Model */,
 				FFCBE772229DAE1E00DBBDC2 /* Model Controller */,
+				FFCBE77E22A097AE00DBBDC2 /* Helpers */,
 				3D90E803229DABC7007AC383 /* View Controllers */,
 				3D90E804229DABFD007AC383 /* Storyboards */,
 				3D90E805229DAC17007AC383 /* Resources */,
@@ -125,6 +130,7 @@
 				FFCBE776229DAE5C00DBBDC2 /* PlantController.swift */,
 				3D90E808229DCFFE007AC383 /* APIController.swift */,
 				FFCBE77A229EF30200DBBDC2 /* PlantPersistenceExtension.swift */,
+				FFCBE77C22A08F6700DBBDC2 /* PlantControllerLocalExtension.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -135,9 +141,17 @@
 				FFCBE774229DAE5100DBBDC2 /* Plant.swift */,
 				FFCBE778229DB50400DBBDC2 /* User.swift */,
 				3D90E806229DCFA6007AC383 /* Bearer.swift */,
-				3D90E80A22A02B36007AC383 /* ThemeHelper.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		FFCBE77E22A097AE00DBBDC2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3D90E80A22A02B36007AC383 /* ThemeHelper.swift */,
+				FFCBE77F22A097D300DBBDC2 /* LocalNotificationHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D90E809229DCFFE007AC383 /* APIController.swift in Sources */,
+				FFCBE77D22A08F6700DBBDC2 /* PlantControllerLocalExtension.swift in Sources */,
 				3D90E807229DCFA6007AC383 /* Bearer.swift in Sources */,
 				3D90E7FC229DAB48007AC383 /* LoginViewController.swift in Sources */,
 				3D90E800229DAB76007AC383 /* UserProfileViewController.swift in Sources */,
@@ -220,6 +235,7 @@
 				FFCBE777229DAE5C00DBBDC2 /* PlantController.swift in Sources */,
 				3D90E7FE229DAB61007AC383 /* PlantDetailViewController.swift in Sources */,
 				FFCBE779229DB50400DBBDC2 /* User.swift in Sources */,
+				FFCBE78022A097D300DBBDC2 /* LocalNotificationHelper.swift in Sources */,
 				3D90E80B22A02B36007AC383 /* ThemeHelper.swift in Sources */,
 				FFCBE775229DAE5100DBBDC2 /* Plant.swift in Sources */,
 				3D90E7E8229DA266007AC383 /* AppDelegate.swift in Sources */,

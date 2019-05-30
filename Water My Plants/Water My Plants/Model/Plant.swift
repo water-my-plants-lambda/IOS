@@ -12,5 +12,5 @@ struct Plant: Codable, Equatable {
     var name: String
     var description: String
     var times: Date
-    var userId: Int
+//    var userId: Int
 }

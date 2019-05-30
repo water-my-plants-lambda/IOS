@@ -14,7 +14,6 @@ class PlantsTableViewController: UITableViewController {
     let plantController = PlantController()
     var isCellSegue: Bool = false
     let apiController = APIController()
-    var plants: [Plant] = [Plant(name: "Palmer", description: "Desert Palm", times: Date(), userId: 1)]
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -22,6 +21,10 @@ class PlantsTableViewController: UITableViewController {
             performSegue(withIdentifier: "LoginSegue", sender: self)
         } else {
             plantController.bearer = apiController.bearer
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
 //            plantController.fetchPlants { (error) in
 //                if let error = error {
 //                    NSLog("Error creating plant: \(error)")
@@ -35,13 +38,13 @@ class PlantsTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return plants.count
+        return plantController.plants.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlantCell", for: indexPath)
         
-        let plant = plants[indexPath.row]
+        let plant = plantController.plants[indexPath.row]
         tableView.backgroundColor = ThemeHelper.lightBlue
         cell.backgroundColor = ThemeHelper.darkBeige
         cell.textLabel?.text = plant.name
@@ -58,12 +61,7 @@ class PlantsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let plant = plantController.plants[indexPath.row]
-            plantController.deletePlant(with: plant) { (error) in
-                if let error = error {
-                    NSLog("Error creating plant: \(error)")
-                    return
-                }
-            }
+            plantController.deletePlant(with: plant)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
