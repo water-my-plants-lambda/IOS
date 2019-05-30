@@ -17,6 +17,7 @@ enum LoginType {
 class LoginViewController: UIViewController {
     
     // MARK: - Properties and Outlets
+    @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var loginSegmentedControl: UISegmentedControl!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -93,7 +94,7 @@ class LoginViewController: UIViewController {
     
     func setTheme() {
         view.backgroundColor = ThemeHelper.lightBlue
-        loginSegmentedControl.backgroundColor = ThemeHelper.darkGreen
+        loginSegmentedControl.backgroundColor = ThemeHelper.lightGreen
         loginSegmentedControl.tintColor = ThemeHelper.lightBeige
         loginSegmentedControl.setTitleTextAttributes(ThemeHelper.textAttributes as [NSAttributedString.Key : Any], for: .normal)
         usernameTextField.textColor = ThemeHelper.darkGreen
@@ -107,5 +108,6 @@ class LoginViewController: UIViewController {
         signUpButton.setTitleColor(ThemeHelper.darkGreen, for: .normal)
         signUpButton.titleLabel?.font = ThemeHelper.badScriptFont(with: .largeTitle, pointSize: 30)
         imageView.image = UIImage(named: "Login")
+        logoImageView.image = UIImage(named: "App Logo")
     }
 }
