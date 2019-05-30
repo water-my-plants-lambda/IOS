@@ -13,6 +13,7 @@ class EditProfileViewController: UIViewController {
     // MARK: - Properties and Outlets
     @IBOutlet weak var newUsernameTextField: UITextField!
     @IBOutlet weak var newPhoneTextField: UITextField!
+    @IBOutlet weak var imageView: UIImageView!
     
     var user: User?
     var apiController: APIController?
@@ -50,5 +51,6 @@ class EditProfileViewController: UIViewController {
             newUsernameTextField.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 18)
             newPhoneTextField.textColor = ThemeHelper.darkGreen
             newPhoneTextField.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 18)
+            imageView.image = UIImage(named: "Edit Profile")
         }
 }

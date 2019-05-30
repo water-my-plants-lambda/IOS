@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="5d3-aW-op3">
-                                <rect key="frame" x="16" y="84" width="343" height="263"/>
+                                <rect key="frame" x="16" y="84" width="343" height="516"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wH9-jJ-Uf6">
                                         <rect key="frame" x="109" y="0.0" width="125" height="29"/>
@@ -66,12 +66,19 @@
                                             <action selector="signUpButtonTapped:" destination="S0M-7r-Xn3" eventType="touchUpInside" id="2TB-UU-ejI"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a2H-3e-LPD">
+                                        <rect key="frame" x="22" y="276" width="299" height="240"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="240" id="QoQ-5D-kr4"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="NTI-Vt-ZOt" secondAttribute="trailing" constant="40" id="2gN-SV-jqL"/>
                                     <constraint firstAttribute="trailing" secondItem="xth-30-j0j" secondAttribute="trailing" id="9mQ-Nf-Xhs"/>
                                     <constraint firstItem="08v-3b-bfP" firstAttribute="leading" secondItem="5d3-aW-op3" secondAttribute="leading" id="ViX-9k-DL8"/>
                                     <constraint firstItem="ZLp-dx-K4c" firstAttribute="leading" secondItem="5d3-aW-op3" secondAttribute="leading" id="XlO-B2-iMo"/>
+                                    <constraint firstItem="a2H-3e-LPD" firstAttribute="leading" secondItem="5d3-aW-op3" secondAttribute="leading" constant="22" id="bhd-Yw-wMS"/>
                                     <constraint firstAttribute="trailing" secondItem="S6D-6e-Arv" secondAttribute="trailing" id="cED-H5-S07"/>
                                     <constraint firstAttribute="trailing" secondItem="ZLp-dx-K4c" secondAttribute="trailing" id="dag-NV-eNk"/>
                                     <constraint firstAttribute="trailing" secondItem="08v-3b-bfP" secondAttribute="trailing" id="mDl-Wb-MhO"/>
@@ -89,6 +96,7 @@
                     <navigationItem key="navigationItem" id="pT8-5z-mD4"/>
                     <connections>
                         <outlet property="emailTextField" destination="ZLp-dx-K4c" id="zit-Ot-9Im"/>
+                        <outlet property="imageView" destination="a2H-3e-LPD" id="DkW-AT-gZv"/>
                         <outlet property="loginSegmentedControl" destination="wH9-jJ-Uf6" id="FAD-6H-pMZ"/>
                         <outlet property="passwordTextField" destination="xth-30-j0j" id="QcB-a0-ahu"/>
                         <outlet property="phoneTextField" destination="08v-3b-bfP" id="YAr-ct-pQO"/>
@@ -131,6 +139,10 @@
                                     <!--2019-05-28 17:26:11 +0000-->
                                 </date>
                             </datePicker>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JuK-yb-X4j">
+                                <rect key="frame" x="37" y="408" width="300" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -152,6 +164,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="Ab1-AQ-sIw" id="qLT-OX-Uu6"/>
+                        <outlet property="imageView" destination="JuK-yb-X4j" id="uRO-7Z-UT4"/>
                         <outlet property="nameTextField" destination="kxx-zA-Xhz" id="0Oi-iW-gFA"/>
                         <outlet property="saveButton" destination="gVV-Yh-mHr" id="TQN-eh-G96"/>
                         <outlet property="speciesTextField" destination="lfd-vx-ZDs" id="Cl1-jy-tya"/>
@@ -266,6 +279,10 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hGg-uB-BkM">
+                                <rect key="frame" x="37" y="286" width="300" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -288,6 +305,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageView" destination="hGg-uB-BkM" id="Vuu-om-sKf"/>
                         <outlet property="phoneLabel" destination="MYd-si-4Tv" id="b6s-ij-pO7"/>
                         <outlet property="usernameLabel" destination="6rZ-4Z-bT2" id="9d3-gc-DDI"/>
                     </connections>
@@ -321,6 +339,10 @@
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kVU-MJ-bIA">
+                                <rect key="frame" x="37" y="286" width="300" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -338,6 +360,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageView" destination="kVU-MJ-bIA" id="nEx-sa-IbO"/>
                         <outlet property="newPhoneTextField" destination="r3A-8n-whv" id="bFF-zB-aCV"/>
                         <outlet property="newUsernameTextField" destination="Tkc-TK-JGK" id="sLj-rA-kYi"/>
                     </connections>

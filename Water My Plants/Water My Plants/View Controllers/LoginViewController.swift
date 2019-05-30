@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
     
     var loginType = LoginType.signUp
     var apiController: APIController?
@@ -105,5 +106,6 @@ class LoginViewController: UIViewController {
         emailTextField.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 18)
         signUpButton.setTitleColor(ThemeHelper.darkGreen, for: .normal)
         signUpButton.titleLabel?.font = ThemeHelper.badScriptFont(with: .largeTitle, pointSize: 30)
+        imageView.image = UIImage(named: "Login")
     }
 }

@@ -13,6 +13,7 @@ class UserProfileViewController: UIViewController {
     // MARK: - Properties and Outlets
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     var user: User?
 
@@ -42,5 +43,6 @@ class UserProfileViewController: UIViewController {
         usernameLabel.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 22)
         phoneLabel.textColor = ThemeHelper.darkGreen
         phoneLabel.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 22)
+        imageView.image = UIImage(named: "Profile")
     }
 }

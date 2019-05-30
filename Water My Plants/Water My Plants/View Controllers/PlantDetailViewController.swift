@@ -18,6 +18,7 @@ class PlantDetailViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var speciesTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     // MARK: - View Loading
@@ -86,5 +87,6 @@ class PlantDetailViewController: UIViewController {
         nameTextField.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 18)
         speciesTextField.textColor = ThemeHelper.darkGreen
         speciesTextField.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 18)
+        imageView.image = UIImage(named: "Plant Detail")
     }
 }

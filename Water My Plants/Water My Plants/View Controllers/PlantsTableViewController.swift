@@ -46,10 +46,12 @@ class PlantsTableViewController: UITableViewController {
         cell.backgroundColor = ThemeHelper.darkBeige
         cell.textLabel?.text = plant.name
         cell.textLabel?.textColor = ThemeHelper.darkGreen
-        cell.textLabel?.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 25)
+        cell.textLabel?.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 20)
         cell.detailTextLabel?.text = plant.description
         cell.detailTextLabel?.textColor = ThemeHelper.darkGreen
-        cell.detailTextLabel?.font = ThemeHelper.badScriptFont(with: .footnote, pointSize: 15)
+        cell.detailTextLabel?.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 15)
+        cell.imageView?.image = UIImage(named: "plants")
+        cell.imageView?.tintColor = ThemeHelper.darkBeige
         return cell
     }
     
