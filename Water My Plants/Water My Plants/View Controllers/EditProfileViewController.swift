@@ -35,12 +35,12 @@ class EditProfileViewController: UIViewController {
         updatedUser.username = newUsername
         updatedUser.phone = newPhone
         
-        apiController?.updateProfile(with: updatedUser, completion: { (error) in
-            if let error = error {
-                NSLog("Error creating plant: \(error)")
-                return
-            }
-        })
+//        apiController?.updateProfile(with: updatedUser, completion: { (error) in
+//            if let error = error {
+//                NSLog("Error creating plant: \(error)")
+//                return
+//            }
+//        })
         
         navigationController?.popToRootViewController(animated: true)
     }

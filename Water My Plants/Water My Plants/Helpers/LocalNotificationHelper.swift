@@ -39,13 +39,21 @@ class LocalNotificationHelper: NSObject, UNUserNotificationCenterDelegate {
         }
     }
     
-    func scheduleDailyReminderNotification(name: String, address: String) {
+    func scheduleDailyReminderNotification(name: String, times: Date, calendar: Calendar) {
+        
+        let df = DateFormatter()
+        df.dateStyle = .none
+        df.timeStyle = .short
+        let time = df.string(from: times)
+        
+        let dateComponents = calendar.dateComponents([.hour, .minute], from: times)
+
         
         let content = UNMutableNotificationContent()
-        content.title = "It's time to water \(name)"
-        content.body = "\(name) is getting thirsty."
+        content.title = "It's time to water \(name)."
+        content.body = "It's \(time)! \(name) is getting thirsty."
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: , repeats: true)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let request = UNNotificationRequest(identifier: "PlantIdentifier", content: content, trigger: trigger)
         let center = UNUserNotificationCenter.current()
         

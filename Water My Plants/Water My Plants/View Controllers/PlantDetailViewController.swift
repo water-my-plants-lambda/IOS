@@ -14,6 +14,7 @@ class PlantDetailViewController: UIViewController {
     var plantController: PlantController?
     var plant: Plant?
     var isCellSegue: Bool = false
+    let localNotifHelper = LocalNotificationHelper()
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var speciesTextField: UITextField!
@@ -59,6 +60,11 @@ class PlantDetailViewController: UIViewController {
             plantController?.createPlant(with: name, description: description, times: times)
         }
         
+        localNotifHelper.requestAuthorizationStatus { success in
+            if success == true {
+                self.localNotifHelper.scheduleDailyReminderNotification(name: name, times: times, calendar: Calendar.current)
+            }
+        }
         navigationController?.popViewController(animated: true)
     }
     

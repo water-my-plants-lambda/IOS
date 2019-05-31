@@ -21,8 +21,8 @@ class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTheme()
-        usernameLabel.text = "Username: mitchell"
-        phoneLabel.text = "Phone number: 1(800)787-9233"
+        usernameLabel.text = user?.username
+        phoneLabel.text = user?.phone
     }
     
     // MARK: - Actions
