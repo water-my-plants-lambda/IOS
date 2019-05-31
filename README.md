@@ -1,6 +1,4 @@
 # iOS
-iOS for Water My Plants
-
 Water My Plants allows users to create lists of household plants and set specific times for them to be watered on a daily basis. Users are able to create new plants with a name, species, and desired watering time. Those created plants can then be accessed to update with new information, or can be deleted at any time. The user can also access their username and phone number information, and change those as well. 
 
 Water My Plants was created in a four day period by a seven person team, two of which being iOS developers and the rest being web developers. The mobile app collaborated with the backend web developers on the database schema and endpoint structuring. 
