@@ -38,7 +38,7 @@ After a user has created at least one plant, the home page will display a list o
 
 <img width="400" height="700" src="https://github.com/water-my-plants-lambda/IOS/blob/master/PlantList.png" />
 
-Users can select the silhouette icon to access information about their profile. After selecting the settings wheel on the profile page, they can change their username and password. 
+Users can select the silhouette icon to access information about their profile. After selecting the settings wheel on the profile page, they can change their username and phone number. 
 
 
 
