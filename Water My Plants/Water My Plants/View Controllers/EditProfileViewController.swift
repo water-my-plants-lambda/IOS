@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol EditProfileViewControllerDelegate: class {
+    func didSaveUser(user: User)
+}
+
 class EditProfileViewController: UIViewController {
     
     // MARK: - Properties and Outlets
@@ -17,6 +21,7 @@ class EditProfileViewController: UIViewController {
     
     var user: User?
     var apiController: APIController?
+    weak var delegate: EditProfileViewControllerDelegate?
     
     // MARK: - View Loading
     override func viewDidLoad() {
@@ -35,13 +40,13 @@ class EditProfileViewController: UIViewController {
         updatedUser.username = newUsername
         updatedUser.phone = newPhone
         
-//        apiController?.updateProfile(with: updatedUser, completion: { (error) in
-//            if let error = error {
-//                NSLog("Error creating plant: \(error)")
-//                return
-//            }
-//        })
-        
+        apiController?.updateProfile(with: updatedUser, completion: { (error) in
+            if let error = error {
+                NSLog("Error updating: \(error)")
+                return
+            }
+        })
+        delegate?.didSaveUser(user: updatedUser)
         navigationController?.popToRootViewController(animated: true)
     }
     

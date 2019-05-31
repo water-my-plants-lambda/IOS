@@ -8,12 +8,13 @@
 
 import UIKit
 
-class PlantsTableViewController: UITableViewController {
+class PlantsTableViewController: UITableViewController, UserProfileViewControllerDelegate {
     
     // MARK: - Properties
     let plantController = PlantController()
     var isCellSegue: Bool = false
     let apiController = APIController()
+    var currentUser: User?
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -25,14 +26,11 @@ class PlantsTableViewController: UITableViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-//            plantController.fetchPlants { (error) in
-//                if let error = error {
-//                    NSLog("Error creating plant: \(error)")
-//                    return
-//                }
-//                self.tableView.reloadData()
-//        }
         }
+    }
+    
+    func didSaveUser(user: User) {
+        currentUser = user
     }
     
     // MARK: - Table view data source
@@ -83,6 +81,13 @@ class PlantsTableViewController: UITableViewController {
         } else if segue.identifier == "LoginSegue" {
             guard let loginVC = segue.destination as? LoginViewController else { return }
             loginVC.apiController = apiController
+            loginVC.tableView = self
+        } else if segue.identifier == "ProfileSegue" {
+            guard let navVC = segue.destination as? UINavigationController else { return }
+            guard let profileVC = navVC.viewControllers.first as? UserProfileViewController else { return }
+            profileVC.tableView = self
+            profileVC.apiController = apiController
+            profileVC.delegate = self
         }
     }
     

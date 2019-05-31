@@ -272,7 +272,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QF3-5A-hSl">
-                                <rect key="frame" x="16" y="96" width="382" height="49"/>
+                                <rect key="frame" x="16" y="96" width="382" height="439"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rZ-4Z-bT2">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
@@ -286,23 +286,20 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hGg-uB-BkM">
+                                        <rect key="frame" x="0.0" y="57" width="382" height="382"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="hGg-uB-BkM" secondAttribute="height" multiplier="1:1" id="CJh-li-T5R"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hGg-uB-BkM">
-                                <rect key="frame" x="20" y="161" width="374" height="374"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="hGg-uB-BkM" secondAttribute="height" multiplier="1:1" id="CJh-li-T5R"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hGg-uB-BkM" firstAttribute="top" secondItem="QF3-5A-hSl" secondAttribute="bottom" constant="16" id="AhU-uM-tvb"/>
                             <constraint firstItem="QF3-5A-hSl" firstAttribute="leading" secondItem="LxA-8e-Smz" secondAttribute="leading" constant="16" id="JE6-UZ-HnU"/>
                             <constraint firstItem="QF3-5A-hSl" firstAttribute="top" secondItem="LxA-8e-Smz" secondAttribute="top" constant="8" id="RyK-Bd-0UK"/>
                             <constraint firstItem="LxA-8e-Smz" firstAttribute="trailing" secondItem="QF3-5A-hSl" secondAttribute="trailing" constant="16" id="Y2v-lq-jVR"/>
-                            <constraint firstItem="hGg-uB-BkM" firstAttribute="centerX" secondItem="Gb3-Js-QDE" secondAttribute="centerX" id="Y9e-mc-dMM"/>
-                            <constraint firstItem="hGg-uB-BkM" firstAttribute="leading" secondItem="LxA-8e-Smz" secondAttribute="leading" constant="20" id="ZMb-G5-PbN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LxA-8e-Smz"/>
                     </view>
@@ -337,7 +334,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2Gr-dc-8aq">
-                                <rect key="frame" x="16" y="96" width="382" height="68"/>
+                                <rect key="frame" x="16" y="96" width="382" height="458"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your new username:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tkc-TK-JGK">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="30"/>
@@ -351,20 +348,17 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kVU-MJ-bIA">
+                                        <rect key="frame" x="0.0" y="76" width="382" height="382"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="kVU-MJ-bIA" secondAttribute="height" multiplier="1:1" id="esE-fc-8gS"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kVU-MJ-bIA">
-                                <rect key="frame" x="20" y="180" width="374" height="374"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="kVU-MJ-bIA" secondAttribute="height" multiplier="1:1" id="esE-fc-8gS"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="kVU-MJ-bIA" firstAttribute="top" secondItem="2Gr-dc-8aq" secondAttribute="bottom" constant="16" id="KQ1-mB-cg9"/>
-                            <constraint firstItem="kVU-MJ-bIA" firstAttribute="leading" secondItem="zhv-Nb-435" secondAttribute="leading" constant="20" id="ZmV-r0-BSA"/>
-                            <constraint firstItem="kVU-MJ-bIA" firstAttribute="centerX" secondItem="J4U-9h-hxa" secondAttribute="centerX" id="gqS-Ne-Nil"/>
                             <constraint firstItem="zhv-Nb-435" firstAttribute="trailing" secondItem="2Gr-dc-8aq" secondAttribute="trailing" constant="16" id="mRt-wR-CWp"/>
                             <constraint firstItem="2Gr-dc-8aq" firstAttribute="leading" secondItem="zhv-Nb-435" secondAttribute="leading" constant="16" id="x9w-2h-hlr"/>
                             <constraint firstItem="2Gr-dc-8aq" firstAttribute="top" secondItem="zhv-Nb-435" secondAttribute="top" constant="8" id="yz0-qh-hBu"/>

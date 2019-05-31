@@ -28,6 +28,8 @@ class LoginViewController: UIViewController {
     
     var loginType = LoginType.signUp
     var apiController: APIController?
+    var currentUser: User?
+    var tableView: PlantsTableViewController?
     
     // MARK: - View Loading
     override func viewDidLoad() {
@@ -45,6 +47,7 @@ class LoginViewController: UIViewController {
             let phone = phoneTextField.text,
             let email = emailTextField.text {
             let user = User(username: username, password: password, phone: phone, email: email)
+            currentUser = user
             switch loginType {
             case .signUp:
                 apiController.signUp(with: user) { (error) in
@@ -68,9 +71,12 @@ class LoginViewController: UIViewController {
                     if let error = error {
                         NSLog("Error logging in: \(error)")
                     } else {
-                        DispatchQueue.main.async {
-                            self.dismiss(animated: true, completion: nil)
-                        }
+                        apiController.getUser(forId: apiController.bearer.id, completion: { (user, error) in
+                            DispatchQueue.main.async {
+                                self.tableView?.currentUser = user
+                                self.dismiss(animated: true, completion: nil)
+                            }
+                        })
                     }
                 }
             }
