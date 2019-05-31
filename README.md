@@ -1,4 +1,4 @@
-# IOS
-IOS for Water My Plants
+# iOS
+iOS for Water My Plants
 
-Test
+/Users/mitchellgbudge/Desktop/SignUp.png
