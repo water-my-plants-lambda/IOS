@@ -25,8 +25,8 @@ class UserProfileViewController: UIViewController, EditProfileViewControllerDele
     weak var delegate: UserProfileViewControllerDelegate?
 
     // MARK: - View Loading
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         setTheme()
         self.user = tableView?.currentUser
@@ -34,13 +34,16 @@ class UserProfileViewController: UIViewController, EditProfileViewControllerDele
         phoneLabel.text = user?.phone
     }
     
-    func didSaveUser(user: User) {
+    func didUpdateUser(user: User) {
+        self.user = user
         usernameLabel.text = user.username
         phoneLabel.text = user.phone
     }
     
     // MARK: - Actions
     @IBAction func dismiss(_ sender: Any) {
+        guard let user = user else { return }
+        delegate?.didSaveUser(user: user)
         self.dismiss(animated: true)
     }
     

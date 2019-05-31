@@ -9,7 +9,7 @@
 import UIKit
 
 protocol EditProfileViewControllerDelegate: class {
-    func didSaveUser(user: User)
+    func didUpdateUser(user: User)
 }
 
 class EditProfileViewController: UIViewController {
@@ -46,7 +46,7 @@ class EditProfileViewController: UIViewController {
                 return
             }
         })
-        delegate?.didSaveUser(user: updatedUser)
+        delegate?.didUpdateUser(user: updatedUser)
         navigationController?.popToRootViewController(animated: true)
     }
     
