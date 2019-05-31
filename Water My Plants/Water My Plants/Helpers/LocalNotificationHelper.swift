@@ -17,7 +17,6 @@ class LocalNotificationHelper: NSObject, UNUserNotificationCenterDelegate {
     // MARK: - LocalNotificationController Delagate Methods
     
     func getAuthorizationStatus(completion: @escaping (UNAuthorizationStatus) -> Void) {
-        
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
             DispatchQueue.main.async {
                 completion(settings.authorizationStatus)
@@ -26,13 +25,10 @@ class LocalNotificationHelper: NSObject, UNUserNotificationCenterDelegate {
     }
     
     func requestAuthorizationStatus(completion: @escaping (Bool) -> Void) {
-        
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
-            
             if let error = error {
                 NSLog("Error requesting authorization status for local notifications: \(error)")
             }
-            
             DispatchQueue.main.async {
                 completion(success)
             }
@@ -40,14 +36,11 @@ class LocalNotificationHelper: NSObject, UNUserNotificationCenterDelegate {
     }
     
     func scheduleDailyReminderNotification(name: String, times: Date, calendar: Calendar) {
-        
         let df = DateFormatter()
         df.dateStyle = .none
         df.timeStyle = .short
         let time = df.string(from: times)
-        
         let dateComponents = calendar.dateComponents([.hour, .minute], from: times)
-
         
         let content = UNMutableNotificationContent()
         content.title = "It's time to water \(name)."
@@ -56,7 +49,6 @@ class LocalNotificationHelper: NSObject, UNUserNotificationCenterDelegate {
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let request = UNNotificationRequest(identifier: "PlantIdentifier", content: content, trigger: trigger)
         let center = UNUserNotificationCenter.current()
-        
         center.delegate = self
         
         center.add(request) { (error) in

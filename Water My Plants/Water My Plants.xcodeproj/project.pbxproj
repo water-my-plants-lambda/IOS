@@ -24,7 +24,6 @@
 		FFCBE777229DAE5C00DBBDC2 /* PlantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCBE776229DAE5C00DBBDC2 /* PlantController.swift */; };
 		FFCBE779229DB50400DBBDC2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCBE778229DB50400DBBDC2 /* User.swift */; };
 		FFCBE77B229EF30200DBBDC2 /* PlantPersistenceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCBE77A229EF30200DBBDC2 /* PlantPersistenceExtension.swift */; };
-		FFCBE77D22A08F6700DBBDC2 /* PlantControllerLocalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCBE77C22A08F6700DBBDC2 /* PlantControllerLocalExtension.swift */; };
 		FFCBE78022A097D300DBBDC2 /* LocalNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCBE77F22A097D300DBBDC2 /* LocalNotificationHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +47,6 @@
 		FFCBE776229DAE5C00DBBDC2 /* PlantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantController.swift; sourceTree = "<group>"; };
 		FFCBE778229DB50400DBBDC2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FFCBE77A229EF30200DBBDC2 /* PlantPersistenceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantPersistenceExtension.swift; sourceTree = "<group>"; };
-		FFCBE77C22A08F6700DBBDC2 /* PlantControllerLocalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantControllerLocalExtension.swift; sourceTree = "<group>"; };
 		FFCBE77F22A097D300DBBDC2 /* LocalNotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,7 +128,6 @@
 				FFCBE776229DAE5C00DBBDC2 /* PlantController.swift */,
 				3D90E808229DCFFE007AC383 /* APIController.swift */,
 				FFCBE77A229EF30200DBBDC2 /* PlantPersistenceExtension.swift */,
-				FFCBE77C22A08F6700DBBDC2 /* PlantControllerLocalExtension.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -227,7 +224,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D90E809229DCFFE007AC383 /* APIController.swift in Sources */,
-				FFCBE77D22A08F6700DBBDC2 /* PlantControllerLocalExtension.swift in Sources */,
 				3D90E807229DCFA6007AC383 /* Bearer.swift in Sources */,
 				3D90E7FC229DAB48007AC383 /* LoginViewController.swift in Sources */,
 				3D90E800229DAB76007AC383 /* UserProfileViewController.swift in Sources */,

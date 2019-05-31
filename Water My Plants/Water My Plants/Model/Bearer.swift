@@ -10,5 +10,5 @@ import Foundation
 
 struct Bearer: Codable {
     let token: String
-    let id: Int // GET /api/users/<id>
+    let id: Int
 }

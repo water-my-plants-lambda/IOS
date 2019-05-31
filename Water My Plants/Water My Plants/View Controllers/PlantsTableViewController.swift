@@ -16,25 +16,25 @@ class PlantsTableViewController: UITableViewController, UserProfileViewControlle
     let apiController = APIController()
     var currentUser: User?
     
+    // MARK: - View Loading
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if apiController.bearer == nil {
             performSegue(withIdentifier: "LoginSegue", sender: self)
         } else {
             plantController.bearer = apiController.bearer
-            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
     }
     
+    // MARK: - Delegate Method
     func didSaveUser(user: User) {
         currentUser = user
     }
     
     // MARK: - Table view data source
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return plantController.plants.count
     }
@@ -53,6 +53,7 @@ class PlantsTableViewController: UITableViewController, UserProfileViewControlle
         cell.detailTextLabel?.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 15)
         cell.imageView?.image = UIImage(named: "plants")
         cell.imageView?.tintColor = ThemeHelper.darkBeige
+        
         return cell
     }
     
@@ -67,7 +68,6 @@ class PlantsTableViewController: UITableViewController, UserProfileViewControlle
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "CellSegue" {
             guard let detailVC = segue.destination as? PlantDetailViewController else { return }
             detailVC.plantController = plantController
@@ -90,6 +90,4 @@ class PlantsTableViewController: UITableViewController, UserProfileViewControlle
             profileVC.delegate = self
         }
     }
-    
-    
 }

@@ -8,6 +8,14 @@
 
 import Foundation
 
+// MARK: -  Enum
+enum HTTPMethod: String {
+    case get = "GET"
+    case put = "PUT"
+    case post = "POST"
+    case delete = "DELETE"
+}
+
 class APIController {
     
     // MARK: - Properties
@@ -29,9 +37,9 @@ class APIController {
         }
         URLSession.shared.dataTask(with: request) { (_, response, error) in
             if let response = response as? HTTPURLResponse,
-            response.statusCode != 201 {
-            completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
-            return
+                response.statusCode != 201 {
+                completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
+                return
             }
             if let error = error {
                 NSLog("Error signing up: \(error)")
@@ -39,9 +47,8 @@ class APIController {
                 return
             }
             completion(nil)
-        }.resume()
+            }.resume()
     }
-    
     
     func signIn(with user: User, completion: @escaping (Error?) -> Void) {
         let requestURL = baseURL.appendingPathComponent("api").appendingPathComponent("login")
@@ -80,9 +87,10 @@ class APIController {
                 completion(error)
                 return
             }
-        }.resume()
+            }.resume()
     }
     
+    // MARK: - User Profile CRUD
     func getUser(forId id: Int, completion: @escaping (User?, Error?) -> Void) {
         let requestURL = baseURL.appendingPathComponent("api").appendingPathComponent("users").appendingPathComponent("\(id)")
         var request = URLRequest(url: requestURL)
@@ -100,7 +108,7 @@ class APIController {
                 NSLog("Errordecoding data: \(error)")
                 completion(nil, error)
             }
-        }.resume()
+            }.resume()
     }
     
     func updateProfile(with user: User, completion: @escaping (Error?) -> Void) {
@@ -130,47 +138,5 @@ class APIController {
             }
             completion(nil)
             }.resume()
-    }
-    
-    // MARK: - Networking
-//    func updateProfile(with user: User, completion: @escaping (Error?) -> Void) {
-//        guard let bearer = bearer else {
-//            NSLog("No bearer token available")
-//            completion(NSError())
-//            return
-//        }
-//        
-//        let requestURL = baseURL
-//            .appendingPathComponent("blah")
-//        var request = URLRequest(url: requestURL)
-//        request.httpMethod = HTTPMethod.post.rawValue
-//        request.addValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
-//        do {
-//            let encoder = JSONEncoder()
-//            request.httpBody = try encoder.encode(user)
-//        } catch {
-//            completion(error)
-//            return
-//        }
-//        URLSession.shared.dataTask(with: request) { _, response, error in
-//            if let response = response as? HTTPURLResponse,
-//                response.statusCode != 201 {
-//                completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
-//                return
-//            }
-//            if let error = error {
-//                completion(error)
-//                return
-//            }
-//            
-//            }.resume()
-//    }
-    
-    // MARK: -  Enum
-    enum HTTPMethod: String {
-        case get = "GET"
-        case put = "PUT"
-        case post = "POST"
-        case delete = "DELETE"
     }
 }

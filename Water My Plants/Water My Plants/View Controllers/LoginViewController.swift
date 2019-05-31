@@ -8,7 +8,7 @@
 
 import UIKit
 
-// Enum
+// MARK: - Enum
 enum LoginType {
     case signUp
     case signIn
@@ -48,6 +48,7 @@ class LoginViewController: UIViewController {
             let email = emailTextField.text {
             let user = User(username: username, password: password, phone: phone, email: email)
             currentUser = user
+            
             switch loginType {
             case .signUp:
                 apiController.signUp(with: user) { (error) in
@@ -81,7 +82,6 @@ class LoginViewController: UIViewController {
                 }
             }
         }
-        
     }
     
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
@@ -98,6 +98,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    // MARK: - UI Theming
     func setTheme() {
         view.backgroundColor = ThemeHelper.lightBlue
         loginSegmentedControl.backgroundColor = ThemeHelper.lightGreen

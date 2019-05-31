@@ -8,12 +8,13 @@
 
 import UIKit
 
+// MARK: - Protocol/Delegate
 protocol UserProfileViewControllerDelegate: class {
     func didSaveUser(user: User)
 }
 
 class UserProfileViewController: UIViewController, EditProfileViewControllerDelegate {
-
+    
     // MARK: - Properties and Outlets
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
@@ -23,7 +24,7 @@ class UserProfileViewController: UIViewController, EditProfileViewControllerDele
     var tableView: PlantsTableViewController?
     var apiController: APIController?
     weak var delegate: UserProfileViewControllerDelegate?
-
+    
     // MARK: - View Loading
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ class UserProfileViewController: UIViewController, EditProfileViewControllerDele
         phoneLabel.text = user?.phone
     }
     
+    // MARK: - Delegate Methods
     func didUpdateUser(user: User) {
         self.user = user
         usernameLabel.text = user.username
@@ -56,6 +58,7 @@ class UserProfileViewController: UIViewController, EditProfileViewControllerDele
         editVC.delegate = self
     }
     
+    // MARK: - UI Theming
     func setTheme() {
         view.backgroundColor = ThemeHelper.lightBlue
         usernameLabel.textColor = ThemeHelper.darkGreen

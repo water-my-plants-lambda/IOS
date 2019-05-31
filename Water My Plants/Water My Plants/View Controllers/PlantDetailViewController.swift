@@ -33,20 +33,16 @@ class PlantDetailViewController: UIViewController {
         if isCellSegue {
             saveButton.title = "Update"
             self.title = plant?.name
-//            datePicker.isHidden = false
-            
             nameTextField.text = plant?.name
             speciesTextField.text = plant?.description
             datePicker.date = plant!.times
         } else {
             self.title = "New Plant"
-//            datePicker.isHidden = true
         }
     }
-
+    
     // MARK: -  Actions
     @IBAction func saveButtonTapped(_ sender: Any) {
-        
         guard let name = nameTextField.text,
             !name.isEmpty,
             let description = speciesTextField.text,
@@ -68,6 +64,7 @@ class PlantDetailViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    // MARK: - UI Theming
     func setTheme() {
         view.backgroundColor = ThemeHelper.lightBlue
         nameTextField.textColor = ThemeHelper.darkGreen

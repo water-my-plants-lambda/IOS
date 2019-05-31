@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - Protocol/Delegate
 protocol EditProfileViewControllerDelegate: class {
     func didUpdateUser(user: User)
 }
@@ -28,7 +29,7 @@ class EditProfileViewController: UIViewController {
         super.viewDidLoad()
         setTheme()
     }
-
+    
     // MARK: - Actions
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let newUsername = newUsernameTextField.text,
@@ -50,12 +51,13 @@ class EditProfileViewController: UIViewController {
         navigationController?.popToRootViewController(animated: true)
     }
     
-        func setTheme() {
-            view.backgroundColor = ThemeHelper.lightBlue
-            newUsernameTextField.textColor = ThemeHelper.darkGreen
-            newUsernameTextField.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 18)
-            newPhoneTextField.textColor = ThemeHelper.darkGreen
-            newPhoneTextField.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 18)
-            imageView.image = UIImage(named: "Edit Profile")
-        }
+    // MARK: - UI Theming
+    func setTheme() {
+        view.backgroundColor = ThemeHelper.lightBlue
+        newUsernameTextField.textColor = ThemeHelper.darkGreen
+        newUsernameTextField.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 18)
+        newPhoneTextField.textColor = ThemeHelper.darkGreen
+        newPhoneTextField.font = ThemeHelper.badScriptFont(with: .callout, pointSize: 18)
+        imageView.image = UIImage(named: "Edit Profile")
+    }
 }
