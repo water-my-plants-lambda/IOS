@@ -226,7 +226,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Plants" id="NrT-Me-Yge">
-                        <barButtonItem key="leftBarButtonItem" title="Profile" id="gKh-7k-has">
+                        <barButtonItem key="leftBarButtonItem" title="Profile" image="avatar" id="gKh-7k-has">
                             <connections>
                                 <segue destination="OMc-LC-eQO" kind="presentation" identifier="ProfileSegue" id="SxM-al-s0O"/>
                             </connections>
@@ -312,7 +312,7 @@
                                 <action selector="dismiss:" destination="ZJy-cG-G54" id="75R-JM-h4G"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Edit Profile" id="0Q8-GP-m2a">
+                        <barButtonItem key="rightBarButtonItem" title="Edit Profile" image="settings" id="0Q8-GP-m2a">
                             <connections>
                                 <segue destination="I1f-Ac-tRI" kind="show" identifier="EditSegue" id="KA5-pq-0cE"/>
                             </connections>
@@ -407,6 +407,10 @@
             <point key="canvasLocation" x="3882.4000000000001" y="728.57142857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="avatar" width="21" height="24"/>
+        <image name="settings" width="24" height="24"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="3Y7-ea-UID"/>
     </inferredMetricsTieBreakers>
